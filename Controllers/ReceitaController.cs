@@ -45,5 +45,15 @@ namespace ControleFinancas.Controllers
             var receitaDto = _mapper.Map<ReadReceitaDto>(receita);
             return Ok(receitaDto);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizaReceita(int id, [FromBody] UpdateReceitaDto receitaDto)
+        {
+            var receita = _context.Receitas.FirstOrDefault(receita => receita.Id == id);
+            if (receita == null) return NotFound();
+            _mapper.Map(receitaDto, receita);
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 }
