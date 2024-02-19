@@ -54,6 +54,16 @@ namespace ControleFinancas.Controllers
             _mapper.Map(receitaDto, receita);
             _context.SaveChanges();
             return NoContent();
+        } 
+        
+        [HttpDelete("{id}")]
+        public IActionResult DeletaReceita(int id)
+        {
+            var receita = _context.Receitas.FirstOrDefault(receita => receita.Id == id);
+            if (receita == null) return NotFound();
+            _context.Remove(receita);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }
