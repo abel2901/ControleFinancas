@@ -18,5 +18,6 @@ namespace ControleFinancas
         }
 
         public DbSet<Receita> Receitas { get; set; }
+        public DbSet<Despesa> Despesas { get; set; }
     }
 }
