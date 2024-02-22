@@ -10,5 +10,6 @@ namespace ControleFinancas.Dtos
         public string Valor { get; set; }
         [Required]
         public DateTime Data { get; set; }
+        public int TipoCategoria { get; set; }
     }
 }

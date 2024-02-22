@@ -13,6 +13,7 @@ namespace ControleFinancas.Data.Config
             builder.Property(x => x.Descricao).HasColumnName("Descricao");
             builder.Property(x => x.Valor).HasColumnName("Valor");
             builder.Property(x => x.Data).HasColumnName("Data");
+            builder.Property(x => x.TipoCategoria).HasColumnName("TipoCategoria");
 
         }
     }
