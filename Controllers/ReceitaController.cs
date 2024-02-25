@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ControleFinancas.Dtos;
+using ControleFinancas.Enum;
 using ControleFinancas.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,8 +22,15 @@ namespace ControleFinancas.Controllers
         [HttpPost]
         public void AdicionaReceita([FromBody] CreateReceitaDto receitaDto)
         {
+            var categoria = _context.Categorias.FirstOrDefault(categoria => categoria.Id == receitaDto.TipoCategoria);
+            var categoriaDto = _mapper.Map<ReadCategoryDto>(categoria);
+
             var descricao = _context.Receitas.FirstOrDefault(receita => receita.Descricao == receitaDto.Descricao);
+
             Receita receita = _mapper.Map<Receita>(receitaDto);
+
+            receita.TipoCategoria = categoriaDto.TipoCategoria;
+            
             if (descricao == null)
             {
                 _context.Receitas.Add(receita);

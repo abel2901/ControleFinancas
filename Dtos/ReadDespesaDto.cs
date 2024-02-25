@@ -1,4 +1,6 @@
-﻿namespace ControleFinancas.Dtos
+﻿using ControleFinancas.Models;
+
+namespace ControleFinancas.Dtos
 {
     public class ReadDespesaDto
     {
@@ -6,5 +8,6 @@
         public string Valor { get; set; }
         public DateTime Data { get; set; }
         public int TipoCategoria { get; set; }
+
     }
 }

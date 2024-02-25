@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ControleFinancas.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ControleFinancas.Dtos
 {

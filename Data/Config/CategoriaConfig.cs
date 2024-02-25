@@ -10,6 +10,7 @@ namespace ControleFinancas.Data.Config
         {
             builder.ToTable("Categoria");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).HasColumnName("ID");
             builder.Property(x => x.TipoCategoria).HasColumnName("TipoCategoria");
 
         }

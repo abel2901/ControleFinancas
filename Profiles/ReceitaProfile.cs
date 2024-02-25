@@ -10,6 +10,7 @@ namespace ControleFinancas.Profiles
         {
             CreateMap<CreateReceitaDto, Receita>();
             CreateMap<Receita, ReadReceitaDto>();
+            CreateMap<ReadCategoryDto, Receita>();
             CreateMap<UpdateReceitaDto, Receita>();
         }
     }

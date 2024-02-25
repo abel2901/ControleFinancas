@@ -15,6 +15,8 @@ namespace ControleFinancas
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ReceitaConfig());
+            modelBuilder.ApplyConfiguration(new DespesaConfig());
+            modelBuilder.ApplyConfiguration(new CategoriaConfig());
         }
 
         public DbSet<Receita> Receitas { get; set; }
