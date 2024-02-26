@@ -44,6 +44,15 @@ namespace ControleFinancas.Controllers
         {
             return _mapper.Map<List<ReadReceitaDto>>(_context.Receitas).ToList();
         }
+
+        [HttpGet("/despesas/{descricao}")]
+        public IEnumerable<ReadReceitaDto> BuscaDespesaPorDescricao(string descricao)
+        {
+            var receita = _context.Receitas.FirstOrDefault(receita => receita.Descricao == descricao);
+            if(descricao == null) return Enumerable.Empty<ReadReceitaDto>();
+            var receitaDto = _mapper.Map<ReadReceitaDto>(receita);
+            return _mapper.Map<List<ReadReceitaDto>>(_context.Receitas).Where(receita => receita.Descricao == descricao).ToList();
+        }
         
         [HttpGet("{id}")]
         public IActionResult DetalhamentoReceita(int id)
