@@ -83,6 +83,13 @@ namespace ControleFinancas.Controllers
             return NoContent();
         }
 
-
+        [HttpGet("/despesas/{ano}/{mes}")]
+        public IEnumerable<ReadDespesaDto> ListaDespesaMensal(int ano, int mes)
+        {
+            var despesa = _context.Despesas.FirstOrDefault();
+            if (despesa == null) return Enumerable.Empty<ReadDespesaDto>();
+            var despesaDto = _mapper.Map<ReadDespesaDto>(despesa);
+            return _mapper.Map<List<ReadDespesaDto>>(_context.Despesas).Where(despesa => despesa.Data.Month == mes && despesa.Data.Year == ano).ToList();
+        }
     }
 }

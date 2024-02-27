@@ -82,5 +82,14 @@ namespace ControleFinancas.Controllers
             _context.SaveChanges();
             return NoContent();
         }
+
+        [HttpGet("/receita/{ano}/{mes}")]
+        public IEnumerable<ReadReceitaDto> ListaReceitaMensal(int ano, int mes)
+        {
+            var receita = _context.Despesas.FirstOrDefault();
+            if (receita == null) return Enumerable.Empty<ReadReceitaDto>();
+            var receitaDto = _mapper.Map<ReadReceitaDto>(receita);
+            return _mapper.Map<List<ReadReceitaDto>>(_context.Receitas).Where(receita => receita.Data.Month == mes && receita.Data.Year == ano).ToList();
+        }
     }
 }
