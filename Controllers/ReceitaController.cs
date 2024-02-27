@@ -22,12 +22,15 @@ namespace ControleFinancas.Controllers
         [HttpPost]
         public void AdicionaReceita([FromBody] CreateReceitaDto receitaDto)
         {
+            Receita receita = _mapper.Map<Receita>(receitaDto);
+
             var categoria = _context.Categorias.FirstOrDefault(categoria => categoria.Id == receitaDto.TipoCategoria);
             var categoriaDto = _mapper.Map<ReadCategoryDto>(categoria);
 
+            receitaDto.Valor = Convert.ToDouble(String.Format("{0:F2}", receitaDto.Valor));
+
             var descricao = _context.Receitas.FirstOrDefault(receita => receita.Descricao == receitaDto.Descricao);
 
-            Receita receita = _mapper.Map<Receita>(receitaDto);
 
             receita.TipoCategoria = categoriaDto.TipoCategoria;
             

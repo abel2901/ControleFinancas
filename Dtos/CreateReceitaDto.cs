@@ -7,7 +7,7 @@ namespace ControleFinancas.Dtos
         [Required]
         public string Descricao { get; set; }
         [Required]
-        public string Valor { get; set; }
+        public double Valor { get; set; }
         [Required]
         public DateTime Data { get; set; }
         public int TipoCategoria { get; set; }
