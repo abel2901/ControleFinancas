@@ -3,6 +3,7 @@ using ControleFinancas.Dtos;
 using ControleFinancas.Enum;
 using ControleFinancas.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ControleFinancas.Controllers
 {
@@ -93,6 +94,46 @@ namespace ControleFinancas.Controllers
             if (receita == null) return Enumerable.Empty<ReadReceitaDto>();
             var receitaDto = _mapper.Map<ReadReceitaDto>(receita);
             return _mapper.Map<List<ReadReceitaDto>>(_context.Receitas).Where(receita => receita.Data.Month == mes && receita.Data.Year == ano).ToList();
+        }
+
+        [HttpGet("/resumo/{ano}/{mes}")]
+        public List<string> ResumoMensal(int ano, int mes)
+        {
+            List<string> ResumoMensal = new List<string>();
+
+            var receita = _context.Receitas.FirstOrDefault();
+            var despesa = _context.Despesas.FirstOrDefault();
+
+            var despesaDto = _mapper.Map<ReadDespesaDto>(despesa);
+            var receitaDto = _mapper.Map<ReadReceitaDto>(receita);
+
+            var valorTotalReceitaMensal = _context.Receitas
+                .Where(receita => receita.Data.Month == mes && receita.Data.Year == ano)
+                .Select(receita => receita.Valor)
+                .Sum();
+
+            ResumoMensal.Add(valorTotalReceitaMensal.ToString());
+
+            var valorTotalDespesaMensal = _context.Despesas
+                .Where(despesa => despesa.Data.Month == mes && despesa.Data.Year == ano)
+                .Select(despesa => despesa.Valor)
+                .Sum();
+
+            ResumoMensal.Add(valorTotalDespesaMensal.ToString());
+
+            var saldoFinalMensal = valorTotalReceitaMensal - valorTotalDespesaMensal;
+
+            ResumoMensal.Add(saldoFinalMensal.ToString());
+
+            if (ResumoMensal.Count == 0) return new List<string>();
+
+            return ResumoMensal;
+
+            //var valorTotalDespesaPorCategoria = _context.Despesas
+            //    .Where(despesa => despesa.Data.Month == mes && despesa.Data.Year == ano && despesa.TipoCategoria 
+            //    .Select(despesa => despesa.Valor)
+            //    .Sum();
+
         }
     }
 }
