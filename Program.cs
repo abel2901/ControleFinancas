@@ -1,4 +1,6 @@
 using ControleFinancas;
+using ControleFinancas.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ControleFinancasConnection");
 
 builder.Services.AddDbContext<ControleFinancasContext>(opts => opts.UseSqlServer(connectionString));
+builder.Services.AddDbContext<UsuarioDbContext>(opts => opts.UseSqlServer(connectionString));
+
+builder.Services
+    .AddIdentity<UsuarioDbContext, IdentityRole>()
+    .AddEntityFrameworkStores<UsuarioDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
