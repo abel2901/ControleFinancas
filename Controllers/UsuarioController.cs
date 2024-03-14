@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using ControleFinancas.Dtos;
-using ControleFinancas.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using ControleFinancas.Dtos;
+using ControleFinancas.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleFinancas.Controllers
@@ -10,26 +8,19 @@ namespace ControleFinancas.Controllers
     [Route("[Controller]")]
     public class UsuarioController : ControllerBase
     {
-        private IMapper _mapper;
-        private UserManager<Usuario> _userManager;
+        private CadastroService _cadastroService;
 
-        public UsuarioController(IMapper mapper, UserManager<Usuario> userManager)
+        public UsuarioController(CadastroService cadastroService)
         {
-            _mapper = mapper;
-            _userManager = userManager;
+            _cadastroService = cadastroService;
         }
 
         [HttpPost]
         public async Task<IActionResult> CadastraUsuario(CreateUsuarioDto dto) 
         { 
-            Usuario usuario = _mapper.Map<Usuario>(dto);
+            await _cadastroService.Cadastra(dto);
 
-            IdentityResult resultado = await _userManager.CreateAsync(usuario, dto.Password);
-
-            if (resultado.Succeeded) return Ok("Usuário cadastrado");
-
-            throw new ApplicationException("Falha ao cadastrar o usuário!");
-
-         }
+            return Ok("Usuário cadastrado");
+        }
     }
 }
