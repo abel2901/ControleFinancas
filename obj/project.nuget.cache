@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2emdnDdR3EoYkgeYhIDaefHKYs359yfcWpxVTx8EKSyy23jLxpNH2evDTTq2ueY0iVAwwau0J3/o/yyonbBpNA==",
+  "dgSpecHash": "ujxj5rDgg49cMVHOh55gNsBaXh2RvPpCGg6j4Ua0IiWWH4ownb7r8V9WJLIrA49yajzshUKjO8rKUQ95gk+nQA==",
   "success": true,
   "projectFilePath": "C:\\Users\\abel2\\source\\repos\\ControleFinancas\\ControleFinancas\\ControleFinancas.csproj",
   "expectedPackageFiles": [
@@ -13,9 +13,9 @@
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
-    "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.27\\microsoft.entityframeworkcore.6.0.27.nupkg.sha512",
-    "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.27\\microsoft.entityframeworkcore.abstractions.6.0.27.nupkg.sha512",
-    "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.27\\microsoft.entityframeworkcore.analyzers.6.0.27.nupkg.sha512",
+    "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.28\\microsoft.entityframeworkcore.6.0.28.nupkg.sha512",
+    "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.28\\microsoft.entityframeworkcore.abstractions.6.0.28.nupkg.sha512",
+    "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.28\\microsoft.entityframeworkcore.analyzers.6.0.28.nupkg.sha512",
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.14\\microsoft.entityframeworkcore.design.6.0.14.nupkg.sha512",
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.27\\microsoft.entityframeworkcore.relational.6.0.27.nupkg.sha512",
     "C:\\Users\\abel2\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.27\\microsoft.entityframeworkcore.sqlserver.6.0.27.nupkg.sha512",

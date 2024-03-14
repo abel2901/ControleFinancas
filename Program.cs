@@ -1,5 +1,6 @@
 using ControleFinancas;
 using ControleFinancas.Data;
+using ControleFinancas.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +13,7 @@ builder.Services.AddDbContext<ControleFinancasContext>(opts => opts.UseSqlServer
 builder.Services.AddDbContext<UsuarioDbContext>(opts => opts.UseSqlServer(connectionString));
 
 builder.Services
-    .AddIdentity<UsuarioDbContext, IdentityRole>()
+    .AddIdentity<Usuario, IdentityRole>()
     .AddEntityFrameworkStores<UsuarioDbContext>()
     .AddDefaultTokenProviders();
 
